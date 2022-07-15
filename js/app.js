@@ -1,36 +1,28 @@
-const on = document.querySelector("#on");
-const sidemenu = document.querySelector("#sidemenu");
-
-on.addEventListener("click", () => { 
-    if(sidemenu.classList.contains('d-none')) {
-        sidemenu.classList.toggle("d-none");
-        sidemenu.classList.toggle("active");
+$("#on").on('click',function(){
+    if($("#sidemenu").hasClass("d-none")) {
+        $("#sidemenu").toggleClass("d-none");
+        $("#sidemenu").toggleClass("active");
     } else {
-        sidemenu.classList.toggle("d-none");
-        sidemenu.classList.toggle("active");
+        $("#sidemenu").toggleClass("d-none");
+        $("#sidemenu").toggleClass("active");
     }
-});
-
-
+      });  
 //up arrow button
 
-// window.onload.addEventListener('scroll',()=> {
-//     console.log(window.screenY)
-//     if(window.screenY >= 50)
-//     {
-//         document.querySelector('.up-btn').style.visibility="hidden"
-//     }else
-//     {
-//         document.querySelector('.up-btn').style.visibility="visible";
-//     }
-// })
+$(window).on('scroll',() => {
+    var scrollToTop = $('.up-btn');
+    scroll = $(window).scrollTop();
+    if(scroll >= 200){
+        scrollToTop.show();
+    } else {
+        scrollToTop.hide();
+    }
+})
 
-const up = document.querySelector('.up-btn');
-up.addEventListener('click', function() {
-    console.log(window.onscroll)
-    window.scroll({
-        top: 0, 
-        left: 0, 
-        behavior: 'smooth' 
-       });
+$(".up-btn").on('click',() => {
+    $(window).scrollTop({
+        top: 0,
+        left: 0,
+        behavior: 'smooth'
+    })
 })
